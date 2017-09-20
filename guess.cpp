@@ -2,6 +2,7 @@
 #include <ctime>
 #include <string>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -10,6 +11,7 @@ int main(){
     srand (time(NULL));
     int randNum;
     int guess;
+    int absValue;
     string difficulty;
     string repeatGame;
     bool guessLoop = true;
@@ -55,24 +57,29 @@ int main(){
     cout<<"Okay, medium. Basic choice."<<endl;
         //while(guessLoop == true){
             cout<<"You get 2 guesses, guess a number between 1 and 10: "<<endl;
+            for(int i = 0; i<2; i++){
             cin>>guess;
                 if (guess < 11 || guess > 0){
                     randNum = rand() % 10 + 1;
                     if (guess == randNum){
                         cout<<endl<<"Congratulations, "<< guess << " is correct!"<<endl;
                     }
+                    else if(i < 1){
+                        //insert absValue declaration/initialization
+                        cout<<"Incorrect guess, you are " << absValue << " away from the correct number."<<endl;
+                    }
                     else{
-                        cout<<"Inncorrect guess, nice try though."<<endl;
+                        //insert absValue declaration/initialization
+                        cout<<"You are out of guesses. The number was "<< randNum<< "."<<endl;
                     }
                 }
                 else{
                     cout<<"Invalid entry, please try again."<<endl;
                 }
-
-
-    //Hard
+             }
 
     }
+    //Hard
 
     //Guessing Game Loop Answer
     cout<<"Would you like to play again?(Y/N): "<<endl;  

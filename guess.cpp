@@ -12,10 +12,10 @@ int main(){
     int randNum;
     int guess;
     int absValue;
+    int randTemp = 0;
     string difficulty;
     string repeatGame;
     bool guessLoop = true;
-    //bool guessTemp;
     bool gameLoop = true;
 
     cout<<endl;
@@ -31,18 +31,20 @@ int main(){
             cin>>difficulty;
 
     //Easy
-    if(difficulty == "Easy" || difficulty == "easy" || difficulty == "ez"){
-    cout<<"Ha, you chose easy!"<< endl;
-        //while (guessLoop == true){
+    if(difficulty == "Easy" || difficulty == "easy" || difficulty == "ez"|| difficulty == "e" || difficulty == "E"){
+    cout<<"Ha, you chose easy!\n"<< endl;
+        while (guessLoop == true){
             cout<< "You have a 50/50 chance, pick 1 or 2: ";
             cin>>guess;
                 if (guess == 1 || guess == 2){ 
                     randNum = rand() % 2 + 1;
                     if (guess == randNum){
-                        cout<<endl<< "Well look at you, you guessed the right number."<<endl;
+                        cout<<endl<< "You guessed "<< guess << ", thats the correct number!"<<endl;
+                        break;
                     }
                     else{
-                    cout<<"WRONG!!! Nice try though."<<endl;
+                    cout<<"WRONG!!! Nice try though, the correct number was "<< randNum<< "."<<endl;
+                    break;
                     }
                 }
                 else{
@@ -50,34 +52,37 @@ int main(){
                 }
 
     }
-    //}
+    }
 
     //Medium
     if(difficulty=="Medium" || difficulty=="medium" || difficulty=="med" || difficulty=="Med" || difficulty== "m" || difficulty=="M"){
-    cout<<"Okay, medium. Basic choice."<<endl;
-        //while(guessLoop == true){
+    cout<<"Okay, medium. Basic choice.\n"<<endl;
+    randNum = rand() % 10 + 1;
+        for(int i = 0; i<2; i++){
             cout<<"You get 2 guesses, guess a number between 1 and 10: "<<endl;
-            for(int i = 0; i<2; i++){
             cin>>guess;
                 if (guess < 11 || guess > 0){
-                    randNum = rand() % 10 + 1;
                     if (guess == randNum){
                         cout<<endl<<"Congratulations, "<< guess << " is correct!"<<endl;
+                        break;
                     }
                     else if(i < 1){
                         //insert absValue declaration/initialization
+                        absValue = abs(randNum - guess);
                         cout<<"Incorrect guess, you are " << absValue << " away from the correct number."<<endl;
                     }
                     else{
-                        //insert absValue declaration/initialization
+                        //insert absValue declaration initialization
+                        absValue = abs(randNum - guess);
                         cout<<"You are out of guesses. The number was "<< randNum<< "."<<endl;
                     }
                 }
                 else{
                     cout<<"Invalid entry, please try again."<<endl;
+                    i--;
                 }
-             }
 
+        }
     }
     //Hard
 

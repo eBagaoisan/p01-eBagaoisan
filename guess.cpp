@@ -67,14 +67,14 @@ int main(){
                         break;
                     }
                     else if(i < 1){
-                        //insert absValue declaration/initialization
+    //insert absValue declaration/initialization
                         absValue = abs(randNum - guess);
                         cout<<"Incorrect guess, you are " << absValue << " away from the correct number."<<endl;
                     }
                     else{
-                        //insert absValue declaration initialization
+    //insert absValue declaration initialization
                         absValue = abs(randNum - guess);
-                        cout<<"You are out of guesses. The number was "<< randNum<< "."<<endl;
+                        cout<<"You are out of guesses. The number was "<< randNum<< " and you were off by" << absValue<<"."<<endl;
                     }
                 }
                 else{
@@ -85,6 +85,31 @@ int main(){
         }
     }
     //Hard
+    if(difficulty=="Hard" || difficulty=="hard" || difficulty=="h" || difficulty=="H" || difficulty=="Hardest"){
+    cout<<"Wow a tough guy over here wanting to play hard. Alright you get 3 guesses."<<endl;
+    randNum = rand() % 100 + 1;
+        for(int i = 0; i<3; i++){
+            cout<<"Guess a number between 1 and 100: ";
+            cin>>guess;
+                if(guess > 0 && guess < 101){
+                    if (guess == randNum){
+                        cout<<endl<<"Congratulations, " << guess << " is the correct number!"<<endl;
+                        break;
+                    }
+                    else if(i < 2) {
+                        absValue = abs(randNum - guess);
+                        cout<<endl<<"Incorrect, you are "<< absValue << " away from the correct number."<<endl;
+                    }
+                    else{
+                        cout<<"You're out of guesses. The number was "<< randNum <<" and you were off by " << absValue <<"."<<endl;
+                    }
+                }
+                else{
+                    cout<<"Invalid entry, please try again."<<endl;
+                    i--;
+                }
+        }
+        }
 
     //Guessing Game Loop Answer
     cout<<"Would you like to play again?(Y/N): "<<endl;  

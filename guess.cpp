@@ -39,7 +39,7 @@ int main(){
                 if (guess == 1 || guess == 2){ 
                     randNum = rand() % 2 + 1;
                     if (guess == randNum){
-                        cout<<endl<< "You guessed "<< guess << ", thats the correct number!"<<endl;
+                        cout<<endl<< "You guessed "<< guess << ", thats the correct number, You win!"<<endl;
                         break;
                     }
                     else{
@@ -63,7 +63,7 @@ int main(){
             cin>>guess;
                 if (guess < 11 || guess > 0){
                     if (guess == randNum){
-                        cout<<endl<<"Congratulations, "<< guess << " is correct!"<<endl;
+                        cout<<endl<<"Congratulations, "<< guess << " is correct! You Win!"<<endl;
                         break;
                     }
                     else if(i < 1){
@@ -93,7 +93,7 @@ int main(){
             cin>>guess;
                 if(guess > 0 && guess < 101){
                     if (guess == randNum){
-                        cout<<endl<<"Congratulations, " << guess << " is the correct number!"<<endl;
+                        cout<<endl<<"Congratulations, " << guess << " is the correct number! You Win!"<<endl;
                         break;
                     }
                     else if(i < 2) {

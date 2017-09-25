@@ -14,9 +14,9 @@ int main(){
     int absValue;
     int randTemp = 0;
     string difficulty;
-    string repeatGame;
     bool guessLoop = true;
     bool gameLoop = true;
+    string gameAns;
 
     cout<<endl;
     //Introduction
@@ -26,7 +26,7 @@ int main(){
     cout<<"Hard: 3 guesses for a random number between 1-100"<<endl;
     
     //Guessing Game Loop
-        //while (gameLoop == true){
+        while (gameLoop == true){
             cout<<"Please select a difficulty: ";
             cin>>difficulty;
 
@@ -112,7 +112,22 @@ int main(){
         }
 
     //Guessing Game Loop Answer
-    cout<<"Would you like to play again?(Y/N): "<<endl;  
+    cout<<"Would you like to play again?(Y/N): "<<endl;
+        for(int i = 0; i < 1; i++){
+        cin>>gameAns;
+        if (gameAns == "n" || gameAns == "N"){
+        gameLoop = false;
+        }
+        else if (gameAns == "y" || gameAns == "Y"){
+        cout<<"Lets Play again!!!"<<endl;
+        }
+        else {
+        cout<<"Invalid answer, enter \"Y\" or \"N\"."<<endl;
+        i--;
+        }
+        }
+
+    }
 
     return 0;
 }
